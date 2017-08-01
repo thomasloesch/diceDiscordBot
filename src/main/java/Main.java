@@ -7,6 +7,8 @@ public class Main {
         EventDispatcher dispatcher = client.getDispatcher();
         //dispatcher.registerListener(new InterfaceListener());
         dispatcher.registerListener(new AnnotationListener());
+        
+        client.getChannelByID(0).sendMessage("Bot online");
     }
 
     private static IDiscordClient createClient(String token, boolean login){
