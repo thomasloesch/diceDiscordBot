@@ -16,6 +16,15 @@ public class DiceTests {
 		
 		Assert.assertNotNull(testDie);
 	}
+	
+	@Test
+	public void testDiceStr() {
+		Die testDie;
+		
+		testDie = new Die("d4");
+		
+		Assert.assertNotNull(testDie);
+	}
 
 	@Test
 	public void testToString() {
