@@ -1,3 +1,4 @@
+package rollBot;
 import sx.blah.discord.api.*;
 import sx.blah.discord.api.events.EventDispatcher;
 

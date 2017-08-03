@@ -1,3 +1,4 @@
+package rollBot;
 import com.sun.org.apache.xalan.internal.xsltc.runtime.MessageHandler;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.api.events.EventDispatcher;
