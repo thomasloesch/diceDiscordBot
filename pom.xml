@@ -29,6 +29,10 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
+        <repository>
+            <id>com.github</id>
+            <url>https://www.github.com</url>
+        </repository>
     </repositories>
 
     <dependencies>
