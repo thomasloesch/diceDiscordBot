@@ -25,6 +25,6 @@ public class RollCommand implements Consumer<CommandContext> {
 
         DiceBag bag = new DiceBag(diceProvider);
 
-        ctx.getChannel().sendMessage(Integer.toString(bag.roll()));
+        ctx.getChannel().sendMessage(String.format("Result: %s", bag.roll()));
     }
 }
