@@ -10,7 +10,7 @@ public class StringDiceProviderTests {
 	private final String testStr = "d4 d6 2d8"; 
 
 	@Test
-	public void testGetDice() {
+	public void TestGetDice() {
 		StringDiceProvider testProvider = new StringDiceProvider(testStr);
 		
 		Die[] testArr = testProvider.getDice();

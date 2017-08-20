@@ -9,7 +9,7 @@ import rollBot.model.Die;
 public class DiceTests {
 
 	@Test
-	public void testDice() {
+	public void TestDice() {
 		Die testDie;
 		
 		testDie = new Die(4);
@@ -18,7 +18,7 @@ public class DiceTests {
 	}
 	
 	@Test
-	public void testDiceStr() {
+	public void TestDiceStr() {
 		Die testDie;
 		
 		testDie = new Die("d4");
@@ -27,7 +27,7 @@ public class DiceTests {
 	}
 
 	@Test
-	public void testToString() {
+	public void TestToString() {
 		Die testDie;
 		
 		testDie = new Die(4);

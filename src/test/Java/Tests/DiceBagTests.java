@@ -21,7 +21,7 @@ public class DiceBagTests {
 	
 
 	@Test
-	public void testRoll() {
+	public void rollTest() {
 		DiceBag bag = new DiceBag(testDiceProvider);
 		
 		int testVal = bag.roll();
