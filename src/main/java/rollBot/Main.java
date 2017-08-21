@@ -43,10 +43,10 @@ public class Main {
 
     private static void populateCommandRegistry(CommandRegistry registry) {
         Command ping = Command.builder()
-                .onCalled(new pingCommand())
+                .onCalled(new PingCommand())
                 .build();
 
-        registry.register(ping, pingCommand.COMMAND_NAME);
+        registry.register(ping, PingCommand.COMMAND_NAME);
 
         Command roll = Command.builder()
                 .onCalled(new RollCommand())

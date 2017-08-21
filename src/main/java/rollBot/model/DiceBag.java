@@ -1,5 +1,7 @@
 package rollBot.model;
 
+import org.apache.commons.lang3.NotImplementedException;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -7,9 +9,7 @@ public class DiceBag {
 	private ArrayList<Die> diceArr;
 	private Random rand;
 	
-	public DiceBag() {	
-		rand = new Random(new java.util.Date().getTime());
-	}
+	public DiceBag() {}
 	
 	public DiceBag(DiceProvider diceProvider) {
 		this();
@@ -24,13 +24,14 @@ public class DiceBag {
 		}
 	}
 	
-	public int roll() {
+	public RollResult roll() {
 		int total = 0;
 		
 		for(Die d : diceArr) {
 			total += rand.nextInt(d.getSides()) + 1;
 		}
-		
-		return total;
+
+		throw new NotImplementedException("Not complete yet.");
+
 	}
 }

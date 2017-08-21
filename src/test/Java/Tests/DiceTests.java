@@ -5,6 +5,9 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import rollBot.model.Die;
+import rollBot.model.RollResult;
+
+import static org.junit.Assert.*;
 
 public class DiceTests {
 
@@ -12,27 +15,36 @@ public class DiceTests {
 	public void TestDice() {
 		Die testDie;
 		
-		testDie = new Die(4);
-		
-		Assert.assertNotNull(testDie);
+		testDie = new Die(1, 4);
+
+		assertEquals("1d4", testDie.toString());
 	}
 	
 	@Test
 	public void TestDiceStr() {
 		Die testDie;
 		
-		testDie = new Die("d4");
-		
-		Assert.assertNotNull(testDie);
+		testDie = new Die("1d4");
+
+		assertEquals("1d4", testDie.toString());
 	}
 
 	@Test
-	public void TestToString() {
+	public void TestDiceMultiple() {
 		Die testDie;
 		
-		testDie = new Die(4);
+		testDie = new Die(2, 4);
 		
-		Assert.assertEquals("d4", testDie.toString());
+		assertEquals("2d4", testDie.toString());
+	}
+
+	@Test
+	public void TestDiceRoll() {
+		Die testDie = new Die(2, 4);
+
+		RollResult testResult = testDie.roll();
+
+		assertNotNull(testResult);
 	}
 
 }

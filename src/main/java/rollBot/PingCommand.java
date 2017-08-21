@@ -4,7 +4,7 @@ import com.darichey.discord.CommandContext;
 
 import java.util.function.Consumer;
 
-public class pingCommand implements Consumer<CommandContext> {
+public class PingCommand implements Consumer<CommandContext> {
     public static final String COMMAND_NAME = "ping";
 
     @Override
