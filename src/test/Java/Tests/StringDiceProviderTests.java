@@ -28,7 +28,8 @@ public class StringDiceProviderTests {
 		
 		Die[] testArr = testProvider.getDice();
 		
-		assertEquals(4, testArr.length);
+		assertEquals(3, testArr.length);
+		assertEquals(2, testArr[2].getNum());
 	}
 
 }

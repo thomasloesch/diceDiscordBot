@@ -36,16 +36,4 @@ public class DiceBagTests {
 		Assert.assertTrue(testResult.getTotal() == 3);
 	}
 
-
-	// TODO - Remove, test is unnecessary as it tests code from DiceRollResults
-	@Test
-	public void rollMaxRollOutputTest() {
-		TestDiceProvider twentyProvider = new TestDiceProvider(DICE_ARR_TWENTY);
-		DiceBag bag = new DiceBag(testDiceProvider);
-
-		RollResult testResult = bag.roll();
-
-		Assert.assertTrue(testResult.toString() == MAX_ROLL_RESULT);
-	}
-
 }

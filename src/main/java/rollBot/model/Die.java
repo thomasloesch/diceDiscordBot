@@ -20,6 +20,7 @@ public class Die {
 	}
 	
 	public int getSides() { return sides; }
+	public int getNum() { return num; }
 
 	public void setNum(int n) {
         if(n < 0) throw new IllegalArgumentException(String.format("Num is too small: %s is smaller than 0", n));
@@ -46,11 +47,11 @@ public class Die {
 		setSides(sidesVal);
 	}
 
-	public RollResult roll() {
-	    RollResult result = new RollResult();
+	public Roll roll() {
+	    Roll result = new Roll();
 
 	    for(int i = 0; i < num; i++) {
-            result.addRoll(rand.nextInt(sides) + 1, sides);
+            result = new Roll(rand.nextInt(sides) + 1, sides);
         }
 
         return result;

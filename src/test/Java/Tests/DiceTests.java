@@ -5,7 +5,7 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import rollBot.model.Die;
-import rollBot.model.RollResult;
+import rollBot.model.Roll;
 
 import static org.junit.Assert.*;
 
@@ -42,7 +42,7 @@ public class DiceTests {
 	public void TestDiceRoll() {
 		Die testDie = new Die(2, 4);
 
-		RollResult testResult = testDie.roll();
+		Roll testResult = testDie.roll();
 
 		assertNotNull(testResult);
 	}

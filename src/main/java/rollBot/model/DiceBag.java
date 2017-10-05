@@ -25,13 +25,12 @@ public class DiceBag {
 	}
 	
 	public RollResult roll() {
-		int total = 0;
+		RollResult result = new RollResult();
 		
 		for(Die d : diceArr) {
-			total += rand.nextInt(d.getSides()) + 1;
+			result.addRoll(d.roll());
 		}
 
-		throw new NotImplementedException("Not complete yet.");
-
+		return result;
 	}
 }
