@@ -18,6 +18,14 @@ public class StringDiceProviderTests {
 	public void TestStrConstuctor() {
 		StringDiceProvider testProvider = new StringDiceProvider(testStr);
 
+		Die[] testArr = testProvider.getDice();
+		assertEquals(3, testArr.length);
+	}
+
+	@Test
+	public void TestNoLeadingNumber() {
+		StringDiceProvider testProvider = new StringDiceProvider("d20");
+
 		assertNotNull(testProvider);
 	}
 
@@ -27,8 +35,7 @@ public class StringDiceProviderTests {
 		StringDiceProvider testProvider = new StringDiceProvider(testList);
 		
 		Die[] testArr = testProvider.getDice();
-		
-		assertEquals(3, testArr.length);
+
 		assertEquals(2, testArr[2].getNum());
 	}
 

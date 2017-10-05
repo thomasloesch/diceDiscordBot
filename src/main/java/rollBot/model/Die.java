@@ -1,7 +1,7 @@
 package rollBot.model;
 
-import org.apache.commons.lang3.NotImplementedException;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Die {
@@ -47,11 +47,11 @@ public class Die {
 		setSides(sidesVal);
 	}
 
-	public Roll roll() {
-	    Roll result = new Roll();
+	public ArrayList<Roll> roll() {
+	    ArrayList<Roll> result = new ArrayList<>();
 
 	    for(int i = 0; i < num; i++) {
-            result = new Roll(rand.nextInt(sides) + 1, sides);
+            result.add(new Roll(rand.nextInt(sides) + 1, sides));
         }
 
         return result;

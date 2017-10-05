@@ -3,6 +3,7 @@ package rollBot;
 import com.darichey.discord.CommandContext;
 import rollBot.model.DiceBag;
 import rollBot.model.DiceProvider;
+import rollBot.model.RollResult;
 import rollBot.model.StringDiceProvider;
 
 import java.util.List;
@@ -24,7 +25,8 @@ public class RollCommand implements Consumer<CommandContext> {
         DiceProvider diceProvider = new StringDiceProvider(allArguments);
 
         DiceBag bag = new DiceBag(diceProvider);
+        RollResult result = bag.roll();
 
-        ctx.getChannel().sendMessage(String.format("Result: %s", bag.roll()));
+        ctx.getChannel().sendMessage(String.format("Result: %s", result));
     }
 }

@@ -1,7 +1,7 @@
 package rollBot.model;
 
 public class Roll {
-    private static String MAX_FORMAT = "**%s**";
+    private static String CRIT_FORMAT = "**%s**";
 
     public int actual;
     public int max;
@@ -14,8 +14,8 @@ public class Roll {
     }
 
     public String toString() {
-        if(actual == max) {
-            return String.format(MAX_FORMAT, actual);
+        if(actual == max || actual == 1) {
+            return String.format(CRIT_FORMAT, actual);
         }
         else {
             return String.valueOf(actual);

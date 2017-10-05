@@ -7,6 +7,8 @@ import org.junit.Test;
 import rollBot.model.Die;
 import rollBot.model.Roll;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class DiceTests {
@@ -42,9 +44,10 @@ public class DiceTests {
 	public void TestDiceRoll() {
 		Die testDie = new Die(2, 4);
 
-		Roll testResult = testDie.roll();
+		List<Roll> testResult = testDie.roll();
 
 		assertNotNull(testResult);
+		assertEquals(2, testResult.size());
 	}
 
 }

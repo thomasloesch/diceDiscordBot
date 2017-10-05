@@ -3,11 +3,11 @@ package rollBot.model;
 import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class DiceBag {
 	private ArrayList<Die> diceArr;
-	private Random rand;
 	
 	public DiceBag() {}
 	
@@ -28,7 +28,9 @@ public class DiceBag {
 		RollResult result = new RollResult();
 		
 		for(Die d : diceArr) {
-			result.addRoll(d.roll());
+			List<Roll> results = d.roll();
+			for(Roll r : results)
+				result.addRoll(r);
 		}
 
 		return result;
