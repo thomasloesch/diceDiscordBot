@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import java.util.function.Consumer;
 
 public class PingCommand implements Consumer<CommandContext> {
-    private static final String COMMAND_NAME = "ping";
+    public static final String COMMAND_NAME = "ping";
     private Logger logger = LoggerFactory.getLogger(PingCommand.class);
 
     @Override
