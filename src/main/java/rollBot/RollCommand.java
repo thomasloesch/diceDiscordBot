@@ -1,28 +1,30 @@
 package rollBot;
 
 import com.darichey.discord.CommandContext;
-import rollBot.model.DiceBag;
-import rollBot.model.DiceProvider;
-import rollBot.model.RollResult;
-import rollBot.model.StringDiceProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import rollBot.model.*;
 
 import java.util.List;
 import java.util.function.Consumer;
 
 public class RollCommand implements Consumer<CommandContext> {
     public static final String COMMAND_NAME = "roll";
+    Logger logger = LoggerFactory.getLogger(RollCommand.class);
 
     @Override
     public void accept(CommandContext ctx) {
         List<String> arguments = ctx.getArgs();
 
-        String allArguments = "";
+        StringBuilder allArguments = new StringBuilder();
 
         for (String a : arguments) {
-            allArguments += a;
+            allArguments.append(a + " ");
         }
 
-        DiceProvider diceProvider = new StringDiceProvider(allArguments);
+        logger.info("Roll Command recieved w/ args: " + allArguments);
+
+        DiceProvider diceProvider = new StringDiceProvider(allArguments.toString());
 
         DiceBag bag = new DiceBag(diceProvider);
         RollResult result = bag.roll();
