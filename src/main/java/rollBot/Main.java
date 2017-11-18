@@ -8,7 +8,7 @@ import sx.blah.discord.api.*;
 import sx.blah.discord.api.events.EventDispatcher;
 
 public class Main {
-    private static final String DEFAULT_COMMAND_PREFIX = "!";
+    private static final String DEFAULT_COMMAND_PREFIX = "/";
     private static Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
