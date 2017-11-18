@@ -18,8 +18,18 @@ public class RollCommand implements Consumer<CommandContext> {
 
         StringBuilder allArguments = new StringBuilder();
 
+        boolean verboseResult = true;
+
         for (String a : arguments) {
-            allArguments.append(a + " ");
+            if(a.startsWith("-")) {
+                a = a.replaceFirst("-", "");
+                if (a.equals("t")) {
+                    verboseResult = false;
+                }
+            }
+            else {
+                allArguments.append(a + " ");
+            }
         }
 
         logger.info("Roll Command recieved w/ args: " + allArguments);
@@ -29,6 +39,6 @@ public class RollCommand implements Consumer<CommandContext> {
         DiceBag bag = new DiceBag(diceProvider);
         RollResult result = bag.roll();
 
-        ctx.getChannel().sendMessage(String.format("Result: %s", result.getResultString(true)));
+        ctx.getChannel().sendMessage(String.format("Result: %s", result.getResultString(verboseResult)));
     }
 }
