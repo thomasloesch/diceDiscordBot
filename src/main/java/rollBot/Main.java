@@ -2,13 +2,17 @@ package rollBot;
 import com.darichey.discord.Command;
 import com.darichey.discord.CommandListener;
 import com.darichey.discord.CommandRegistry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import sx.blah.discord.api.*;
 import sx.blah.discord.api.events.EventDispatcher;
 
 public class Main {
     private static final String DEFAULT_COMMAND_PREFIX = "!";
+    private static Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
+        logger.info("Starting bot...");
         IDiscordClient client = createClient(args[0], true);
         EventDispatcher dispatcher = client.getDispatcher();
         //dispatcher.registerListener(new InterfaceListener());
