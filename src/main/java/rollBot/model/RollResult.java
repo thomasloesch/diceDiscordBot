@@ -30,23 +30,29 @@ public class RollResult {
         rollList.add(roll);
     }
 
-    public String toString() {
+    public String getResultString(boolean verbose) {
         StringBuilder builder = new StringBuilder();
 
         if (rollList.size() == 1) {
             builder.append(rollList.get(0).toString());
         }
         else if (rollList.size() > 1) {
-            for (Roll r : rollList){
-                builder.append(r.toString());
-                builder.append(" " + DELIMITER + " ");
-            }
+            if(verbose) {
+                for (Roll r : rollList) {
+                    builder.append(r.toString());
+                    builder.append(" " + DELIMITER + " ");
+                }
 
-            int lastPos = builder.lastIndexOf(DELIMITER);
-            builder.replace(lastPos, lastPos + 1, "="); // TODO - Make that shit a constant
+                int lastPos = builder.lastIndexOf(DELIMITER);
+                builder.replace(lastPos, lastPos + 1, "="); // TODO - Make that shit a constant
+            }
             builder.append(getTotal());
         }
 
         return builder.toString();
+    }
+
+    public String toString() {
+        return getResultString(true);
     }
 }

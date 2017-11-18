@@ -26,14 +26,18 @@ public class RollResultTests {
     }
 
     @Test
-    public void TestToString() {
+    public void TestGetResultString() {
         RollResult testResult = new RollResult();
         testResult.addRoll(10, 20);
         testResult.addRoll(10, 20);
 
-        String testValue = testResult.toString();
+        String testValue = testResult.getResultString(true);
 
         assertEquals("10 + 10 = 20", testValue);
+
+        testValue = testResult.getResultString(false);
+
+        assertEquals("20", testValue);
     }
 
     @Test
@@ -42,7 +46,7 @@ public class RollResultTests {
         testResult.addRoll(10, 10);
         testResult.addRoll(10, 10);
 
-        String testValue = testResult.toString();
+        String testValue = testResult.getResultString(true);
 
         assertEquals("**10** + **10** = 20", testValue);
     }
