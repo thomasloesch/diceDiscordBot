@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class RollCommand implements Consumer<CommandContext> {
+    private static final int RESULT_LIMIT = 2000;
     public static final String COMMAND_NAME = "roll";
     Logger logger = LoggerFactory.getLogger(RollCommand.class);
 
@@ -38,7 +39,13 @@ public class RollCommand implements Consumer<CommandContext> {
 
         DiceBag bag = new DiceBag(diceProvider);
         RollResult result = bag.roll();
+        String resultString = result.getResultString(verboseResult);
 
-        ctx.getChannel().sendMessage(String.format("Result: %s", result.getResultString(verboseResult)));
+        if(resultString.length() > RESULT_LIMIT) {
+            resultString = result.getResultString(false);
+            resultString += " (Result was too large, terse output given instead)";
+        }
+
+        ctx.getChannel().sendMessage(String.format("Result: %s", resultString));
     }
 }
