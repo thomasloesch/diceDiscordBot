@@ -1,4 +1,20 @@
-ECHO "Fix this script you idiot"
-Echo "Add a config file for the token, IGNORE IT FROM THE REPO"
+#!/bin/bash
 
-// nohup java -jar target/rollBot-1.2-SNAPSHOT.jar [REDACTED] &
+tokenFile="./config/token"
+
+if [[ ! -e $tokenFile ]]; then
+	echo "Token file does not exist! ( $tokenFile )"
+	exit 1	
+fi
+
+tokenInput="$(cat $tokenFile)"
+
+echo "Found token: $tokenInput"
+
+# Remove previous nohup.out if present
+if [[ -e ./nohup.out ]]; then
+	echo "Removing previous nohup file."
+	rm ./nohup.out
+fi
+
+nohup java -jar target/rollBot-1.2-SNAPSHOT.jar $tokenInput &
