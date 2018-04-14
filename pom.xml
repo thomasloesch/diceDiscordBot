@@ -97,13 +97,17 @@
             <id>jitpack.io</id>
             <url>http://jitpack.io</url>
         </repository>
+        <repository>
+            <id>mvnrepo</id>
+            <url>https://mvnrepository.com/artifact/org.slf4j/slf4j-api</url>
+        </repository>
     </repositories>
 
     <dependencies>
         <dependency>
             <groupId>com.github.austinv11</groupId>
             <artifactId>Discord4J</artifactId>
-            <version>2.9.3</version>
+            <version>2.10.0</version>
             <classifier>shaded</classifier>   <!--Include this line if you want a shaded jar (all the Discord4J dependencies bundled into one jar)-->
         </dependency>
         <dependency>
@@ -121,6 +125,11 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
             <version>1.7.25</version>
         </dependency>
         <dependency>

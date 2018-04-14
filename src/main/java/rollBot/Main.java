@@ -44,7 +44,7 @@ public class Main {
         }
 
         logger.info("Creating client with token {}", token);
-        IDiscordClient client = createClient(token, true);
+        IDiscordClient client =  BotUtils.getBuiltDiscordClient(token);
         EventDispatcher dispatcher = client.getDispatcher();
         //dispatcher.registerListener(new InterfaceListener());
         //dispatcher.registerListener(new AnnotationListener());
@@ -53,21 +53,7 @@ public class Main {
         CommandListener cmdListener = new CommandListener(registry);
         dispatcher.registerListener(cmdListener);
 
-    }
-
-    private static IDiscordClient createClient(String token, boolean login){
-        ClientBuilder clientBuilder = new ClientBuilder();
-        clientBuilder.withToken(token);
-        try {
-            if(login) {
-                return clientBuilder.login();
-            } else {
-                return clientBuilder.build();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+        client.login();
     }
 
     private static CommandRegistry createCommandRegistry() {
