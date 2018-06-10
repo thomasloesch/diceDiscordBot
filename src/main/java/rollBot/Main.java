@@ -74,6 +74,12 @@ public class Main {
                 .build();
 
         registry.register(roll, RollCommand.COMMAND_NAME);
+
+        Command coin = Command.builder()
+                .onCalled(new CoinFlipCommand())
+                .build();
+
+        registry.register(coin, CoinFlipCommand.COMMAND_NAME);
     }
 
     private static Options populateOptions() {
