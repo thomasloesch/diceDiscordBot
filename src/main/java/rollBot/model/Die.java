@@ -1,7 +1,6 @@
 package rollBot.model;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Die {
@@ -37,8 +36,6 @@ public class Die {
 	public void setString(String str) {
         if(!str.matches(REGEX_STR))
             throw new IllegalArgumentException(String.format("Input '%s' does not match expression %s.", str, REGEX_STR));
-
-		int intVal = 0;
 
 		String[] intValueStrings = str.split("d");
 		int numVal = Integer.parseInt(intValueStrings[0]);
