@@ -4,6 +4,7 @@ import com.darichey.discord.CommandContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rollBot.model.*;
+import sx.blah.discord.util.DiscordException;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -40,12 +41,17 @@ public class RollCommand implements Consumer<CommandContext> {
         DiceBag bag = new DiceBag(diceProvider);
         RollResult result = bag.roll();
         String resultString = result.getResultString(verboseResult);
+        resultString = String.format("Result: %s", resultString);
 
         if(resultString.length() > RESULT_LIMIT) {
             resultString = result.getResultString(false);
             resultString += " (Result was too large, terse output given instead)";
         }
-
-        ctx.getChannel().sendMessage(String.format("Result: %s", resultString));
+        try {
+            ctx.getChannel().sendMessage(resultString);
+        } catch (DiscordException ex) {
+            ctx.getChannel().sendMessage("Stop breaking my bot! 😡");
+            ctx.getChannel().sendMessage(ex.getErrorMessage());
+        }
     }
 }
