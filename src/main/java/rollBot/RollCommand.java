@@ -46,6 +46,10 @@ public class RollCommand implements Consumer<CommandContext> {
         if(resultString.length() > RESULT_LIMIT) {
             resultString = result.getResultString(false);
             resultString += " (Result was too large, terse output given instead)";
+            
+            if(resultString.length() > RESULT_LIMIT) {
+                resultString = "Wow, that's a lot of dice. Maybe try something smaller! (Could not return result)";
+            }
         }
         try {
             ctx.getChannel().sendMessage(resultString);
