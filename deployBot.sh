@@ -17,4 +17,4 @@ if [[ -e ./nohup.out ]]; then
 	rm ./nohup.out
 fi
 
-nohup java -jar target/rollBot-1.2-SNAPSHOT.jar $tokenInput &
+nohup java -jar target/rollBot-1.2-SNAPSHOT.jar -t $tokenInput &
