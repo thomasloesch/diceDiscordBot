@@ -68,7 +68,13 @@ public class Main {
                 .build();
 
         registry.register(ping, PingCommand.COMMAND_NAME);
-
+        
+        Command ding = Command.builder()
+                .oncCalled(new DingCommand())
+                .build();
+        
+        registry.register(ding, DingCommand.COMMAND_NAME);
+        
         Command roll = Command.builder()
                 .onCalled(new RollCommand())
                 .build();
