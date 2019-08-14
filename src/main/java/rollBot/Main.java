@@ -70,7 +70,7 @@ public class Main {
         registry.register(ping, PingCommand.COMMAND_NAME);
         
         Command ding = Command.builder()
-                .oncCalled(new DingCommand())
+                .onCalled(new DingCommand())
                 .build();
         
         registry.register(ding, DingCommand.COMMAND_NAME);
