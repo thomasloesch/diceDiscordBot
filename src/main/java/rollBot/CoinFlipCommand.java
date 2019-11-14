@@ -1,13 +1,12 @@
 package rollBot;
 
-import com.darichey.discord.CommandContext;
+import org.javacord.api.event.message.MessageCreateEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Random;
-import java.util.function.Consumer;
 
-public class CoinFlipCommand implements Consumer<CommandContext> {
+public class CoinFlipCommand {
     public static final String COMMAND_NAME = "coinflip";
     Logger logger = LoggerFactory.getLogger(CoinFlipCommand.class);
 
@@ -16,8 +15,13 @@ public class CoinFlipCommand implements Consumer<CommandContext> {
     private static final String HEAD_MSG = "Heads!";
     private static final String TAIL_MSG = "Tails!";
 
-    @Override
-    public void accept(CommandContext commandContext) {
+    public boolean matchesPattern(String message) {
+        return message.matches("/coinflip.*");
+    }
+
+    public void accept(MessageCreateEvent commandContext) {
+        logger.info("Coin flip command received!");
+
         int result = rand.nextInt(2);
 
         if(result == 0) {
