@@ -1,17 +1,18 @@
 package rollBot;
 
-import com.darichey.discord.CommandContext;
+import org.javacord.api.event.message.MessageCreateEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.function.Consumer;
-
-public class DingCommand implements Consumer<CommandContext> {
+public class DingCommand {
     public static final String COMMAND_NAME = "ding";
     private Logger logger = LoggerFactory.getLogger(DingCommand.class);
 
-    @Override
-    public void accept(CommandContext ctx) {
+    public boolean matchesPattern(String message) {
+        return message.matches("/ding.*");
+    }
+
+    public void accept(MessageCreateEvent ctx) {
         logger.info("Ding command received!");
         ctx.getChannel().sendMessage("Dong!");
     }
