@@ -1,17 +1,18 @@
 package rollBot;
 
-import com.darichey.discord.CommandContext;
+import org.javacord.api.event.message.MessageCreateEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.function.Consumer;
-
-public class PingCommand implements Consumer<CommandContext> {
+public class PingCommand {
     public static final String COMMAND_NAME = "ping";
     private Logger logger = LoggerFactory.getLogger(PingCommand.class);
 
-    @Override
-    public void accept(CommandContext ctx) {
+    public boolean matchesPattern(String message) {
+        return message.matches("/ping.*");
+    }
+
+    public void accept(MessageCreateEvent ctx) {
         logger.info("Ping command received!");
         ctx.getChannel().sendMessage("Pong!");
     }
