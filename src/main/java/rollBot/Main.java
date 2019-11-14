@@ -44,6 +44,7 @@ public class Main {
         logger.info("Creating client with token {}", token);
 
         PingCommand pingCommand = new PingCommand();
+        DingCommand dingCommand = new DingCommand();
         RollCommand rollCommand = new RollCommand();
         CoinFlipCommand coinCommand = new CoinFlipCommand();
 
@@ -53,6 +54,9 @@ public class Main {
         api.addMessageCreateListener(event -> {
             if (pingCommand.matchesPattern(event.getMessage().getContent())) {
                 pingCommand.accept(event);
+            }
+            if (dingCommand.matchesPattern(event.getMessage().getContent())) {
+                dingCommand.accept(event);
             }
             else if (rollCommand.matchesPattern(event.getMessage().getContent())) {
                 rollCommand.accept(event);
